@@ -26,7 +26,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_total_notes"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -49,7 +49,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_active_notes"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -72,7 +72,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_archived_notes"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -95,7 +95,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_trashed_notes"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -118,7 +118,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_reminders"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -141,7 +141,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_future_reminders"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -164,7 +164,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_checklists"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -187,7 +187,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_locked_notes"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -210,7 +210,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_categories"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -233,7 +233,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_tags"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -256,7 +256,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_attachments"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -279,7 +279,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_attachments"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -302,7 +302,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_videos"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -325,7 +325,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_audio_recordings"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -348,7 +348,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_sketches"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -371,7 +371,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_files"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -394,7 +394,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_locations"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -417,7 +417,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_words"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -440,7 +440,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_max_words"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -463,7 +463,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_avg_words"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -486,7 +486,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_characters"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -509,7 +509,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_max_characters"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 
@@ -532,7 +532,7 @@
                     android:gravity="end|right"
                     android:paddingEnd="5dp"
                     android:paddingRight="7dp"
-                    android:text="@string/stats_avg_characters"
+                    android:text=""
                     android:textStyle="bold" >
             </TextView>
 

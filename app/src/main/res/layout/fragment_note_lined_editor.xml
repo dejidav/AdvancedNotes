@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/margin_padding_tiny"
+    android:paddingRight="@dimen/margin_padding_tiny">
+
+    <EditText
+        android:id="@+id/edit_text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="@dimen/margin_padding_small"
+        android:layout_marginLeft="@dimen/margin_padding_tiny"
+        android:layout_marginTop="@dimen/margin_padding_tiny"
+        android:hint="@string/enter_title"
+        android:padding="@dimen/margin_padding_tiny"
+        android:singleLine="true"
+        android:textColor="#000000"/>
+
+
+    <e.dav.advancednotes.model.LinedEditText
+        android:id="@+id/edit_text_note"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="vertical"
+        android:gravity="top"
+        android:hint="@string/enter_content"
+        android:inputType="textMultiLine"
+        android:padding="@dimen/margin_padding_small"
+        android:scrollbars="vertical"
+        android:textSize="@dimen/text_size_normal"/>
+
+</LinearLayout>

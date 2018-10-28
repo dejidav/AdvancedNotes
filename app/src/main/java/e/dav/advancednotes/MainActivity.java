@@ -1,25 +1,24 @@
 package e.dav.advancednotes;
 
 import android.content.Intent;
-import android.database.Cursor;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import e.dav.advancednotes.adapter.NoteListAdapter;
 import e.dav.advancednotes.db.DbHelper;
+import e.dav.advancednotes.fragments.NoteListFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button newNote, dispNotes;
     ListView nListView;
     DbHelper db;
-    NoteAdapter nAdapter;
+    NoteListAdapter nAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,23 +34,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         newNote.setOnClickListener(this);
         dispNotes.setOnClickListener(this);
 
-        populateListView();
-
-
-
-    }
-
-    public void populateListView(){
-        //get the data and append to list
-
-
-        ArrayList<Note> data = db.getNotes();
-        nAdapter = new NoteAdapter(this, data);
 
 
 
 
     }
+
+
 
     public void onClick(View view) {
         switch (view.getId()) {
@@ -59,13 +48,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(MainActivity.this, NoteActivity.class);
                 startActivity(intent);
 
-            break;
+                break;
 
             case R.id.btn_dispNotes:
-                populateListView();
-            break;
+                openFragment(new NoteListFragment());
+                break;
         }
     }
 
+
+    private void openFragment(final Fragment fragment){
+        getSupportFragmentManager()
+                .beginTransaction()
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .replace(R.id.container, fragment)
+                .addToBackStack(null)
+                .commit();
+
+    }
 
 }

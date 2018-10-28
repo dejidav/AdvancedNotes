@@ -1,54 +1,71 @@
 package e.dav.advancednotes;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 
-import java.util.Calendar;
-
-import e.dav.advancednotes.db.DbHelper;
+import e.dav.advancednotes.fragments.NotePlainEditorFragment;
 
 public class NoteActivity extends AppCompatActivity {
 
-    EditText noteTitle;
-    EditText noteContent;
-    Button saveNote;
-    Button deleteNote;
-    DbHelper db;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.note_layout);
-        noteTitle = findViewById(R.id.edit_title);
-        noteContent = findViewById(R.id.edit_notecontent);
-        saveNote = findViewById(R.id.btn_save);
-        deleteNote = findViewById(R.id.btn_delete);
-        db = new DbHelper(this);
+        setContentView(R.layout.activity_note_editor);
 
 
+        mToolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//remove this line in the MainActivity.java
+
+        if (savedInstanceState == null){
+            Bundle args = getIntent().getExtras();
+            if (args != null && args.containsKey("id")){
+                long id = args.getLong("id", 0);
+                if (id > 0){
+                    openFragment(NotePlainEditorFragment.newInstance(id));
+                }
+            }
+            openFragment(NotePlainEditorFragment.newInstance(0));
+        }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_note_editor, menu);
+        return true;
+    }
 
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_save:
-                Note newNote = new Note();
-                newNote.setTitle(noteTitle.getText().toString());
-                newNote.setContent(noteContent.getText().toString());
-                newNote.setCreation(Calendar.getInstance()
-                        .getTimeInMillis());
-                db.insertNote(newNote);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
-
-            break;
-
-            case R.id.btn_delete:
-            break;
-
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
         }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void openFragment(final Fragment fragment){
+        getSupportFragmentManager()
+                .beginTransaction()
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .replace(R.id.container, fragment)
+                .addToBackStack(null)
+                .commit();
+
     }
 
 

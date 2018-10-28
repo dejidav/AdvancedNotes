@@ -6,7 +6,7 @@ import android.os.Parcelable;
 
 import java.util.Calendar;
 
-public class Attachment extends BaseAttachment implements Parcelable {
+public class Attachment extends BaseAttachment  {
 
     private Uri uri;
 
@@ -47,33 +47,5 @@ public class Attachment extends BaseAttachment implements Parcelable {
     }
 
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-
-    @Override
-    public void writeToParcel(Parcel parcel, int flags) {
-        parcel.writeLong(getId());
-        parcel.writeString(getUri().toString());
-        parcel.writeString(getMime_type());
-    }
-
-
-    /*
-     * Parcelable interface must also have a static field called CREATOR, which is an object implementing the
-     * Parcelable.Creator interface. Used to un-marshal or de-serialize object from Parcel.
-     */
-    public static final Parcelable.Creator<Attachment> CREATOR = new Parcelable.Creator<Attachment>() {
-
-        public Attachment createFromParcel(Parcel in) {
-            return new Attachment(in);
-        }
-
-
-        public Attachment[] newArray(int size) {
-            return new Attachment[size];
-        }
-    };
 }

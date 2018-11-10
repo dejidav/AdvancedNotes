@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import e.dav.advancednotes.fragments.NoteLinedEditorFragment;
 import e.dav.advancednotes.fragments.NotePlainEditorFragment;
 
 public class NoteActivity extends AppCompatActivity {
@@ -24,16 +25,7 @@ public class NoteActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//remove this line in the MainActivity.java
 
-        if (savedInstanceState == null){
-            Bundle args = getIntent().getExtras();
-            if (args != null && args.containsKey("id")){
-                long id = args.getLong("id", 0);
-                if (id > 0){
-                    openFragment(NotePlainEditorFragment.newInstance(id));
-                }
-            }
-            openFragment(NotePlainEditorFragment.newInstance(0));
-        }
+
     }
 
     @Override
@@ -58,15 +50,7 @@ public class NoteActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void openFragment(final Fragment fragment){
-        getSupportFragmentManager()
-                .beginTransaction()
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                .replace(R.id.container, fragment)
-                .addToBackStack(null)
-                .commit();
 
-    }
 
 
 

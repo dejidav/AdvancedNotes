@@ -18,7 +18,7 @@ public class NoteContentProvider extends ContentProvider {
     private DbHelper dbHelper;
 
     private static final String BASE_PATH_NOTE = "notes";
-    private static final String AUTHORITY = "com.okason.simplenotesapp.data.provider";
+    private static final String AUTHORITY = "e.dav.advancednotes.data.provider";
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH_NOTE);
     private static final int NOTE = 100;
     private static final int NOTES = 101;

@@ -5,6 +5,7 @@ import android.content.Context;
 
 import android.database.Cursor;
 import android.net.Uri;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,15 +32,16 @@ public class NoteManager {
         this.mContext = context.getApplicationContext();
     }
 
-    public long create(Note note) {
+    public void create(Note note) {
         ContentValues values = new ContentValues();
         values.put(Constants.COLUMN_TITLE, note.getTitle());
         values.put(Constants.COLUMN_CONTENT, note.getContent());
         values.put(Constants.COLUMN_CREATED_TIME, System.currentTimeMillis());
         values.put(Constants.COLUMN_MODIFIED_TIME, System.currentTimeMillis());
-        Uri result = mContext.getContentResolver().insert(NoteContentProvider.CONTENT_URI, values);
-        long id = Long.parseLong(result.getLastPathSegment());
-        return id;
+
+
+        Log.i("create note", "Note created and saved");
+
     }
 
     public void update(Note note) {

@@ -1,41 +1,33 @@
 package e.dav.advancednotes;
 
-import android.content.Intent;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ListView;
 
-import e.dav.advancednotes.adapter.NoteListAdapter;
+
 import e.dav.advancednotes.db.DbHelper;
 import e.dav.advancednotes.fragments.NoteListFragment;
 
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button newNote, dispNotes;
-    ListView nListView;
+
     DbHelper db;
-    NoteListAdapter nAdapter;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        newNote =(Button) findViewById(R.id.btn_newNote);
-        nListView = findViewById(R.id.list_notes);
-        dispNotes = findViewById(R.id.btn_dispNotes);
         db = new DbHelper(this);
-        dispNotes = (Button)findViewById(R.id.btn_dispNotes);
-
-        newNote.setOnClickListener(this);
-        dispNotes.setOnClickListener(this);
-
-
-
+        mToolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
 
 
     }
@@ -43,28 +35,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_newNote:
-                Intent intent = new Intent(MainActivity.this, NoteActivity.class);
-                startActivity(intent);
+    }
 
-                break;
 
-            case R.id.btn_dispNotes:
-                openFragment(new NoteListFragment());
-                break;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_note_editor, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
         }
+
+        return super.onOptionsItemSelected(item);
     }
 
 
-    private void openFragment(final Fragment fragment){
-        getSupportFragmentManager()
-                .beginTransaction()
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                .replace(R.id.container, fragment)
-                .addToBackStack(null)
-                .commit();
 
-    }
 
 }

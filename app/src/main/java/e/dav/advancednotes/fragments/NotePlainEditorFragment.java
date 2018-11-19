@@ -32,12 +32,12 @@ public class NotePlainEditorFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static NotePlainEditorFragment newInstance(long id){
+    public static NotePlainEditorFragment newInstance(int id){
         NotePlainEditorFragment fragment = new NotePlainEditorFragment();
 
         if (id > 0){
             Bundle bundle = new Bundle();
-            bundle.putLong("id", id);
+            bundle.putInt("id", id);
             fragment.setArguments(bundle);
         }
         return fragment;
@@ -46,7 +46,7 @@ public class NotePlainEditorFragment extends Fragment {
     private void getCurrentNote(){
         Bundle args = getArguments();
         if (args != null && args.containsKey("id")){
-            long id = args.getLong("id", 0);
+            int id = args.getInt("id", 0);
             if (id > 0){
                 mCurrentNote = NoteManager.newInstance(getActivity()).getNote(id);
             }
@@ -139,6 +139,8 @@ public class NotePlainEditorFragment extends Fragment {
             note.setTitle(title);
             note.setContent(content);
             NoteManager.newInstance(getActivity()).create(note);
+
+
         }
         return true;
 

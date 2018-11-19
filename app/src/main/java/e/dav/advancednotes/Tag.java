@@ -1,14 +1,9 @@
 package e.dav.advancednotes;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+public class Tag {
 
-public class Tag extends BaseTag implements Parcelable {
-
-    private Tag(Parcel in) {
-        setText(in.readString());
-        setCount(in.readInt());
-    }
+    private String text;
+    private int count;
 
 
     public Tag() {
@@ -16,44 +11,28 @@ public class Tag extends BaseTag implements Parcelable {
     }
 
 
-    public Tag(String text, Integer count) {
-        super(text, count);
+    public Tag(String text, int count) {
+        this.text = text;
+        this.count = count;
     }
 
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public int getCount() {
+        return count;
     }
 
 
-    @Override
-    public void writeToParcel(Parcel parcel, int flags) {
-        parcel.writeString(getText());
-        parcel.writeInt(getCount());
+    public void setCount(int count) {
+        this.count = count;
     }
 
 
-    @Override
-    public String toString() {
-        return getText();
+    public String getText() {
+        return text;
     }
 
 
-    /*
-     * Parcelable interface must also have a static field called CREATOR, which is an object implementing the
-     * Parcelable.Creator interface. Used to un-marshal or de-serialize object from Parcel.
-     */
-    public static final Parcelable.Creator<Tag> CREATOR = new Parcelable.Creator<Tag>() {
-
-        public Tag createFromParcel(Parcel in) {
-            return new Tag(in);
-        }
-
-
-        public Tag[] newArray(int size) {
-            return new Tag[size];
-        }
-    };
+    public void setText(String text) {
+        this.text = text;
+    }
 }
-

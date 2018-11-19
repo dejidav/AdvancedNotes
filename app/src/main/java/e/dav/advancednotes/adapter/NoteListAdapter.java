@@ -35,7 +35,8 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-
+        // - get element from your dataset at this position
+        // - replace the contents of the view with that element
         holder.noteTitle.setText(mNotes.get(position).getTitle());
         holder.noteCreateDate.setText(mNotes.get(position).getReadableModifiedDate());
     }
@@ -53,8 +54,8 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
 
         public ViewHolder(View itemView) {
             super(itemView);
-            noteTitle = (TextView)itemView.findViewById(R.id.text_view_note_title);
-            noteCreateDate = (TextView)itemView.findViewById(R.id.text_view_note_date);
+            noteTitle = itemView.findViewById(R.id.text_view_note_title);
+            noteCreateDate = itemView.findViewById(R.id.text_view_note_date);
         }
 
     }

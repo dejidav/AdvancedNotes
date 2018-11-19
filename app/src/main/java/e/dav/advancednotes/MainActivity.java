@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mToolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
+        openFragment(new NoteListFragment(), "Notes");
 
     }
 
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_note_editor, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -63,5 +64,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
+    private void openFragment(final Fragment fragment, String title){
+        getSupportFragmentManager()
+                .beginTransaction()
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .replace(R.id.notelistfragment, fragment)
+                .addToBackStack(null)
+                .commit();
+        getSupportActionBar().setTitle(title);
+    }
 
 }

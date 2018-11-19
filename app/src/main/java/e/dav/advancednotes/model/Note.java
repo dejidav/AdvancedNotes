@@ -11,11 +11,13 @@ import java.util.Locale;
 import e.dav.advancednotes.utils.Constants;
 
 public class Note {
-    private Long id;
+    private int id;
     private String title;
     private String content;
     private Calendar dateCreated;
     private Calendar dataModified;
+    private int tag;
+    private String attachment;
 
     public String getReadableModifiedDate(){
         SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy - h:mm a", Locale.getDefault());
@@ -26,7 +28,7 @@ public class Note {
 
     public static Note getNotefromCursor(Cursor cursor){
         Note note = new Note();
-        note.setId(cursor.getLong(cursor.getColumnIndex(Constants.COLUMN_ID)));
+        note.setId(cursor.getInt(cursor.getColumnIndex(Constants.COLUMN_ID)));
         note.setTitle(cursor.getString(cursor.getColumnIndex(Constants.COLUMN_TITLE)));
         note.setContent(cursor.getString(cursor.getColumnIndex(Constants.COLUMN_CONTENT)));
 
@@ -46,11 +48,11 @@ public class Note {
 
 
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -84,5 +86,21 @@ public class Note {
 
     public void setDataModified(Calendar dataModified) {
         this.dataModified = dataModified;
+    }
+
+    public int getTag() {
+        return tag;
+    }
+
+    public void setTag(int tag) {
+        this.tag = tag;
+    }
+
+    public String getAttachment() {
+        return attachment;
+    }
+
+    public void setAttachment(String attachment) {
+        this.attachment = attachment;
     }
 }

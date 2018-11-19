@@ -3,6 +3,7 @@ package e.dav.advancednotes.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import e.dav.advancednotes.utils.*;
 
@@ -19,6 +20,7 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_NOTE);
+        Log.e("create note db", "Note db created");
     }
 
     @Override
@@ -35,8 +37,10 @@ public class DbHelper extends SQLiteOpenHelper {
             + Constants.COLUMN_ID + " integer primary key autoincrement, "
             + Constants.COLUMN_TITLE + " text not null, "
             + Constants.COLUMN_CONTENT + " text not null, "
-            + Constants.COLUMN_MODIFIED_TIME + " integer not null, "
-            + Constants.COLUMN_CREATED_TIME + " integer not null " + ")";
+            + Constants.COLUMN_MODIFIED_TIME + " integer, "
+            + Constants.COLUMN_CREATED_TIME + " integer, "
+            + Constants.COLUMN_TAG + " integer, "
+            + Constants.COLUMN_ATTACHMENT + " text "  + ")";
 
 }
 

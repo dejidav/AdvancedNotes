@@ -38,6 +38,7 @@ public class NoteManager {
         values.put(Constants.COLUMN_CONTENT, note.getContent());
         values.put(Constants.COLUMN_CREATED_TIME, System.currentTimeMillis());
         values.put(Constants.COLUMN_MODIFIED_TIME, System.currentTimeMillis());
+        values.put(Constants.COLUMN_TAG, note.getTag());
 
 
         Log.i("create note", "Note created and saved");
@@ -61,7 +62,7 @@ public class NoteManager {
     }
 
     public List<Note> getAllNotes() {
-        List<Note> notes = new ArrayList<Note>();
+        List<Note> notes = new ArrayList<>();
         Cursor cursor = mContext.getContentResolver().query(NoteContentProvider.CONTENT_URI, Constants.COLUMNS, null, null, null);
         if (cursor != null){
             cursor.moveToFirst();
@@ -74,7 +75,7 @@ public class NoteManager {
         return notes;
     }
 
-    public Note getNote(Long id) {
+    public Note getNote(int id) {
         Note note;
         Cursor cursor = mContext.getContentResolver().query(NoteContentProvider.CONTENT_URI,
                 Constants.COLUMNS, Constants.COLUMN_ID + " = " + id, null, null);

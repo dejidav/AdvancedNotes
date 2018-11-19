@@ -25,13 +25,23 @@ public class NoteActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//remove this line in the MainActivity.java
 
+        if (savedInstanceState == null){
+            Bundle args = getIntent().getExtras();
+            if (args != null && args.containsKey("id")){
+                int id = args.getInt("id", 0);
+                if (id > 0){
+                    openFragment(NoteLinedEditorFragment.newInstance(id), "Editor");
+                }
+            }
+            openFragment(NoteLinedEditorFragment.newInstance(0), "Editor");
+        }
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_note_editor, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -47,10 +57,27 @@ public class NoteActivity extends AppCompatActivity {
             return true;
         }
 
+
+
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
+
+    private void openFragment(final Fragment fragment, String title){
+        getSupportFragmentManager()
+                .beginTransaction()
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .replace(R.id.notelinededitfragment, fragment)
+                .addToBackStack(null)
+                .commit();
+        getSupportActionBar().setTitle(title);
+    }
 
 
 

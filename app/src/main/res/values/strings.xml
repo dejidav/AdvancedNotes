@@ -14,4 +14,11 @@
     <string name="title_editor">Editor</string>
     <string name="action_save">Save</string>
     <string name="action_delete">Delete</string>
+    <string name="action_tag">Tag</string>
+    <string name="tag_red">Red</string>
+    <string name="tag_yellow">Yellow</string>
+    <string name="tag_blue">Blue</string>
+    <string name="tag_green">Green</string>
+    <string name="tag_orange">Orange</string>
+    <string name="action_attach">Attach File</string>
 </resources>

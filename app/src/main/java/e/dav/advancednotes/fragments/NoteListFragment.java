@@ -26,7 +26,7 @@ public class NoteListFragment extends Fragment {
     private FloatingActionButton mFab;
     private View mRootView;
     private List<Note> mNotes;
-    private RecyclerView mRecyclerView;
+    private RecyclerView mRecyclerView = null;
     private NoteListAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
@@ -36,7 +36,7 @@ public class NoteListFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+    public View onCreateView( LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment and hold the reference
         //in mRootView
@@ -59,14 +59,14 @@ public class NoteListFragment extends Fragment {
 
 
     private void setupList() {
-        mRecyclerView = (RecyclerView) mRootView.findViewById(R.id.note_recycler_view);
-        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView = mRootView.findViewById(R.id.note_recycler_view);
+        mRecyclerView.setHasFixedSize(true);//true
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         final GestureDetector mGestureDetector =
                 new GestureDetector(getActivity(), new GestureDetector.SimpleOnGestureListener(){
-                    @Override
+                    @Override// Gesture Listener
                     public boolean onSingleTapUp(MotionEvent e) {
                         return true;
                     }
@@ -74,7 +74,7 @@ public class NoteListFragment extends Fragment {
 
         mRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
             @Override
-            public boolean onInterceptTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
+            public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
                 View child = recyclerView.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
 
                 if (child != null && mGestureDetector.onTouchEvent(motionEvent)) {
@@ -87,7 +87,7 @@ public class NoteListFragment extends Fragment {
             }
 
             @Override
-            public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+            public void onTouchEvent( RecyclerView rv,  MotionEvent e) {
 
             }
 

@@ -1,8 +1,8 @@
 package e.dav.advancednotes.fragments;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -98,8 +98,27 @@ public class NoteListFragment extends Fragment {
         });
 
         mNotes = NoteManager.newInstance(getActivity()).getAllNotes();
-        mAdapter = new NoteListAdapter(mNotes, getActivity());
+        GetNoteTask gnt = new GetNoteTask();
+        gnt.execute(mNotes);
+
         mRecyclerView.setAdapter(mAdapter);
+    }
+    //AsyncTAsk class
+    private class GetNoteTask extends AsyncTask<List<Note>, Integer, NoteListAdapter >{
+
+
+        @Override
+        protected NoteListAdapter doInBackground(List<Note>... lists) {
+            List<Note>  mNotes = lists[0];
+            mAdapter = new NoteListAdapter(mNotes, getActivity());
+            return mAdapter;
+        }
+
+        @Override
+        protected void onPostExecute(NoteListAdapter result){
+
+            mRecyclerView.setAdapter(result);
+        }
     }
 
 

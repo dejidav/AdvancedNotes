@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">AdvancedNotes</string>
+
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_note_editor">NoteEditorActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_title">Enter Title</string>
+    <string name="enter_content">Enter Content</string>
+    <string name="title_home">Home</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_editor">Editor</string>
+    <string name="action_save">Save</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_tag">Tag</string>
+    <string name="tag_red">Red</string>
+    <string name="tag_yellow">Yellow</string>
+    <string name="tag_blue">Blue</string>
+    <string name="tag_green">Green</string>
+    <string name="tag_orange">Orange</string>
+    <string name="action_attach">Attach File</string>
+    <string name="menu_delete">Delete</string>
+    <string name="menu_edit">Edit</string>
+    <string name="menu_share">Share</string>
+</resources>

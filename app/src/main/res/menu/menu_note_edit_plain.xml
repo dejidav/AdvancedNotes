@@ -1,0 +1,49 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="Activities.NoteActivity">
+
+
+    <item android:id="@+id/action_save"
+          android:title="@string/action_save"
+          android:icon="@drawable/ic_action_save"
+          app:showAsAction="always"/>
+
+    <item android:id="@+id/action_attach"
+        android:title="@string/action_attach"
+        android:icon="@drawable/ic_action_attach"
+        app:showAsAction="always"/>
+
+
+    <item android:id="@+id/action_delete"
+            android:title="@string/action_delete"
+            android:icon="@drawable/ic_action_trash"
+            app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/action_settings"
+            android:title="@string/action_settings"
+            android:orderInCategory="100"
+            app:showAsAction="never"/>
+
+    <item android:id="@+id/action_tag"
+        android:title="@string/action_tag"
+        android:orderInCategory="100"
+        app:showAsAction="never">
+
+
+        <menu>
+            <item android:id="@+id/tag_red"
+                android:title="@string/tag_red" />
+            <item android:id="@+id/tag_yellow"
+                android:title="@string/tag_yellow" />
+            <item android:id="@+id/tag_blue"
+                android:title="@string/tag_blue" />
+            <item android:id="@+id/tag_green"
+                android:title="@string/tag_green" />
+            <item android:id="@+id/tag_orange"
+                android:title="@string/tag_orange" />
+
+        </menu>
+    </item>
+
+</menu>
